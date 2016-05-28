@@ -1,0 +1,41 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+
+/**
+ * allows for the cleanBuild task to run in proper order
+ */
+build.mustRunAfter clean
+
+/**
+ * By default, gradle looks at /main/java/src for the code to compile
+ * This allows me to redirect it to the /src directory instead.
+ */
+sourceSets {
+   main {
+      java {
+         srcDirs = ["src"]
+      }
+   }
+}
+
+repositories {
+   mavenCentral()
+}
+
+/**
+ * Setup the manifest that gets generated in the jar to be able to execute the runnable jar
+ */
+jar {
+   /**
+    * Setup the manifest that gets generated in the jar to be able to execute the runnable jar
+    */
+   manifest {
+      attributes 'Main-Class': 'com.freel.hello.HelloWorld'
+   }
+}
+
+/**
+ * Extra task created to clean and build the project
+ */
+task cleanBuild (dependsOn:['clean','build']) << {
+}
