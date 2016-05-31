@@ -1,8 +1,16 @@
+# Eclipse Artifacts
 *.classpath
 **/*.classpath
 *.project
 **/*.project
+**/.settings
+
+
+# Build Artifacts
+**/build
 **/bin
+
+# Gradle Artifacts
 .gradle
 **/.gradle
-**/build
+
