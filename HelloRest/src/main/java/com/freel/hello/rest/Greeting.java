@@ -1,4 +1,4 @@
-package com.freel.hello;
+package com.freel.hello.rest;
 
 public class Greeting
 {
