@@ -1,0 +1,65 @@
+The following text file depicts notes on how to start up a project using eclipse, gradle, and git. 
+These notes are to be used as a reminder as we do not start up projects every day. 
+
+Eclipse
+-------
+-------
+   Gradle Support in Eclipse
+   -------------------------
+      --> Download the following two plugins:
+             (1) Gradle IDE                => Adds necessary views to run gradle tasks within eclipse to build your project
+	     (2) Minimalist Gradle Editor  => Provides and Editor to view '.gradle' files more elegantly. 
+
+      --> Window -> Preferences -> Gradle -> Arguments -> Update "Workspace JRE" to use corresponding JDK (not JRE). 
+             This is to allow eclipse to properly compile java code using gradle.
+
+      --> Ensure your 'build.gradle' file applies the plugin: 'eclipse'
+             This plugin allows you to have the necessary tasks to generate the .project & .classpath files for eclipse.
+	     These files will update the project you are building to have the proper external dependencies mapped to it
+	     (assuming they are properly setup in you 'build.gradle' file). This also includes transitive dependencies which
+	     do not need to be included in the 'build.gradle' file.
+
+   MISC
+   ----
+      --> Make sure to import the standard settings for code formatting asap. 
+          I have a one backed up in the super directory of this git project called 'eclipseStandardFormat.xml' for my ideal standards.
+
+
+Gradle
+------
+------
+   Disclaimer
+   ----------
+      --> Look over the different build.gradle files for the projects. I've tried to comment as much as possible why certain non-intuitive additions 
+      	  were made. 
+      --> In case you've never used gradle, all you need to do is execute this command while being in the directory containing the 'build.gradle' file:
+             'gradle taskName' => This will execute the task named taskName. You can provide gradle a list of tasks to execute as well. 
+
+   Java Projects
+   -------------
+      --> Easiest way to add a new dependency you need is to look up the latest version on Maven's website and add the dependency as the website proposes.
+             website: http://search.maven.org/
+
+      --> If you are building a non-library (executable), you will need to include the manifest with the 'Main-Class' specified. 
+          Include the below in your 'build.gradle' file (replace com.freel.hello.HelloWorld with where you main can be found):
+	     jar {
+	        manifest {
+		   attributes 'Main-Class': 'com.freel.hello.HelloWorld'
+		}
+	     }
+
+   MISC
+   ----
+      --> Gradle does not guarantee the order of the tasks.
+          Therefore, when you try to do the equivalent of a CleanBuild, it can do the Build first then the clean. 
+	  The way to resolve this, is you need to include the following:
+	     'build.mustRunAfter clean'
+
+Git
+---
+---
+   Initial Configuration
+   ---------------------
+      --> Setup when pulling to autorebase
+      --> 
+      -->
