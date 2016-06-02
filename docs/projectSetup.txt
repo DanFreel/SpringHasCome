@@ -9,6 +9,12 @@ Eclipse
       --> Download the following two plugins:
              (1) Gradle IDE                => Adds necessary views to run gradle tasks within eclipse to build your project
 	     (2) Minimalist Gradle Editor  => Provides and Editor to view '.gradle' files more elegantly. 
+	        Note: for plugin (1) => To execute tasks, open the 'Gradle Tasks' view
+	  
+      --> For plugin (1) to execute tasks, your project will need to be converted to a Gradle project.
+             Right Click Project -> Configure -> Convert to Gradle Project.
+
+	     Also note that its possible the project loses its status as a gradle project. Just convert it again. 
 
       --> Window -> Preferences -> Gradle -> Arguments -> Update "Workspace JRE" to use corresponding JDK (not JRE). 
              This is to allow eclipse to properly compile java code using gradle.
@@ -19,10 +25,24 @@ Eclipse
 	     (assuming they are properly setup in you 'build.gradle' file). This also includes transitive dependencies which
 	     do not need to be included in the 'build.gradle' file.
 
-   MISC
-   ----
-      --> Make sure to import the standard settings for code formatting asap. 
-          I have a one backed up in the super directory of this git project called 'eclipseStandardFormat.xml' for my ideal standards.
+      --> This isn't gradle specific but is relevant to meet gradle's requirement for source file locations (src/main/java & src/main/test)
+          The details of gradle's requirements can be found in the gradle section of this document.
+	     
+	  The issue is that eclipse treats directories under source as a new package. To avoid this, you need to add new source folders. 
+	     Right Click Project -> Properties -> Java Build Path -> Source
+	        Remove the existing one and add the two you need to respect gradle's requirement. 
+             
+
+   Eclipse Coding Styles
+   ---------------------
+      --> Update Variable Name Convention 
+             Window -> Preferences -> Code Style
+
+      --> Generate your own code formater which you can export/import
+             Window -> Preferences -> Code Style -> Formatter
+	        New... to generate a new one, then Edit... to edit all of the details to your liking. 
+		
+          I already have a coding style setup stored in the docs folder in this repository called 'eclipseCodingStyleFormatter.xml' for my ideal standards.
 
 
 Gradle
@@ -47,6 +67,10 @@ Gradle
 		   attributes 'Main-Class': 'com.freel.hello.HelloWorld'
 		}
 	     }
+
+      --> Your java project is expected to respect the following structure (unless you change the gradle script to behave differently):
+             src/main/java  => for java source files
+	     src/test/java  => for test source files
 
    MISC
    ----
