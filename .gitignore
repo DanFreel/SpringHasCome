@@ -5,6 +5,10 @@
 **/*.project
 **/.settings
 
+#Eclipse Artifacts for Python
+*.pydevproject
+**/*.pydevproject
+**/__pycache__
 
 # Build Artifacts
 **/build
