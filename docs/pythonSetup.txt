@@ -1,0 +1,35 @@
+Setup python via command line
+   1) Install download embeddable zip file for the version of python desired.
+      Download link: https://www.python.org/downloads/
+
+   2) Unzip contents into a directory. 
+      Add that directory onto the PATH.
+
+   3) You will have a file that was unzipped called "pythonXX.zip".
+      Create a directory with the same name, and unzip the contents of the zip file into it. 
+      Make sure that the directory is also postfixed with ".zip"
+
+   4) If you have any modules already loaded, you will have a "Scripts" directory created in your python directory. Add that to the class path as well. 
+          This will allow you to run modules without using "python -m 'module name'"
+
+   Note: Depending on the directory where you stored the python directory, its possible you will need to run your command line application using Admin-Mode.
+
+
+Setup pip (allowing you to install other modules)
+   1) Download get-pip.py and copy it into the Python directory.
+      Download Link: https://bootstrap.pypa.io/
+
+   2) Using a shell in admin-mode, execute "get-pip.py".
+
+
+Setup Scrapy module
+   1) For several modules, you will need lxml setup. 
+      However, pip install lxml won't work because... you are missing lxml. 
+      (I know this is stupid). 
+
+   1.1) Download manually the wheel file for lxml and save it in your user directory.
+        Download Link: http://www.lfd.uci.edu/~gohlke/pythonlibs/#lxml
+
+   1.2) run "pip install 'name_of_wheel_file'" and this will install lxml.
+
+   2) pip install Scrapy
