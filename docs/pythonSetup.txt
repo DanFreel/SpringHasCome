@@ -33,3 +33,9 @@ Setup Scrapy module
    1.2) run "pip install 'name_of_wheel_file'" and this will install lxml.
 
    2) pip install Scrapy
+
+   3) If using Python 3 on windows:
+          I) Copy the _win32stdio and _pollingfile to the appropriate directory under site-packages. Namely, twisted-dir\internet. Download these from https://github.com/twisted/twisted/tree/trunk/twisted/internet
+
+          II) pip install pypiwin32
+

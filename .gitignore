@@ -18,3 +18,5 @@
 .gradle
 **/.gradle
 
+# Scrapy Output
+ScrapyTutorial/*.html*
