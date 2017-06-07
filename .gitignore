@@ -18,5 +18,8 @@
 .gradle
 **/.gradle
 
+# PyCharm IDE Artifacts
+**/.idea
+
 # Scrapy Output
 ScrapyTutorial/*.html*
